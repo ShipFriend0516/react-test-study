@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axiosClient from "../libs/axios";
+import axiosClient from "libs/axios";
 
 interface IFoodType {
   id: number;

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import axiosClient from "../libs/axios";
-import { IMenu } from "../mixins/types";
+import axiosClient from "libs/axios";
+import { IMenu } from "mixins/types";
 
 interface IRestaurantDetail {
   id: number;

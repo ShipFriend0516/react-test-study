@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import { newOrderState } from "../atoms/order";
-import useRestaurantDetail from "../hooks/useRestaurantDetail";
+import { newOrderState } from "atoms/order";
+import useRestaurantDetail from "hooks/useRestaurantDetail";
 
-import { flexColumn, flexRow } from "../mixins/styles";
-import { IMenu } from "../mixins/types";
+import { flexColumn, flexRow } from "mixins/styles";
+import { IMenu } from "mixins/types";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 

@@ -3,8 +3,8 @@ import {
   newOrderState,
   targetRestaurantState,
   totalPriceState,
-} from "../atoms/order";
-import { flexColumn, flexRow } from "../mixins/styles";
+} from "atoms/order";
+import { flexColumn, flexRow } from "mixins/styles";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import axiosClient from "../libs/axios";
-import { IRestaurant } from "../libs/order";
+import axiosClient from "libs/axios";
+import { IRestaurant } from "libs/order";
 
 const useRestaurantList = (foodTypeId: number) => {
   return useQuery(

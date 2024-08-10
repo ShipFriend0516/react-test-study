@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 import useSignup from "../hooks/useSignup";
+import { Button } from "../stories/Button";
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -75,13 +76,13 @@ export default function SignupPage() {
         </InputSection>
       </div>
 
-      <SignupButton
+      <Button
         data-cy="signupButton"
+        primary={true}
+        label="회원가입"
         disabled={!email || !password || password != confirmPassword}
         onClick={() => handleSignup({ username: email, password })}
-      >
-        회원가입
-      </SignupButton>
+      />
     </Wrapper>
   );
 }

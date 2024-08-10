@@ -5,7 +5,7 @@ import type { ContextType } from "./context";
 import { reducer } from "./reducer";
 import { initialState } from "./state";
 import { INewOrder, IRestaurant, ITargetRestaurant } from ".";
-import axiosClient from "../../axios";
+import axiosClient from "libs/axios";
 
 const OrderProvider = ({
   children,
