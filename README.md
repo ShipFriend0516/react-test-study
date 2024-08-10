@@ -43,5 +43,29 @@
 통합테스트 - 유닛테스트 하나로 묶여서 잘 작동하는지, 상호작용이 잘되는지 등
 E2E 테스트 - 엔드투엔드 테스트, 사용자들이 실제로 사용하는 것처럼 테스트
 
+---
+
 ## 회원가입 테스트
 ![회원가입 테스트](public/회원가입테스트.png)
+
+### 에러
+
+```bash
+FAIL  src/__test__/Signup.spec.tsx
+● Test suite failed to run
+
+  Jest encountered an unexpected token
+
+  Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+```
+처음 리액트 테스트코드 작성하자마자 만난 에러, CSS 파일을 읽지 못해서 생기는 오류
+
+해결방법: 루트 폴더에 `__mocks__` 폴더 생성하고 styleMock.cjs 빈 파일을 만들고, jest.config.cjs에 아래 코드 추가로 해결
+```js
+moduleNameMapper: {
+  "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.cjs",
+},
+```
+
+읽으려다가 오류나는 CSS 파일 대신 Mock된 styleMock을 읽도록 해서 넘기는 방법이다.
+
