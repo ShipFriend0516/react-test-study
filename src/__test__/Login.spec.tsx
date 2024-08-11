@@ -7,14 +7,17 @@ import useLogin from "../hooks/useLogin";
 
 const queryClient = new QueryClient({
   defaultOptions: {},
-  logger: {
-    log: console.log,
-    warn: console.warn,
-    error: process.env.NODE_ENV === "test" ? () => {} : console.error,
-  },
 });
 
 describe("로그인 테스트", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   test("로그인에 실패하면 에러메시지가 나타난다", async () => {
     // given
     const routes = [
