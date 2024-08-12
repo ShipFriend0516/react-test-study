@@ -15,9 +15,20 @@ describe("로그인 화면", () => {
     cy.get("@emailInput").invoke("val").should("eq", email);
     cy.get("@passwordInput").invoke("val").should("eq", password);
 
+    cy.intercept(
+      {
+        method: "POST",
+        url: "/user/login",
+      },
+      {
+        token: "AUTH_TOKEN",
+      }
+    ).as("login");
+
     cy.get("[data-cy=loginButton]").should("exist").click();
 
-    cy.url().should("eq", "http://localhost:5173/");
     // then - 로그인에 성공 메인화면으로 이동
+
+    cy.url().should("eq", "http://localhost:5173/");
   });
 });
