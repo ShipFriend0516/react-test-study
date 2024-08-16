@@ -91,4 +91,34 @@ describe("주문 페이지 테스트", () => {
       cy.url().should("include", "/restaurant/1");
     });
   });
+
+  it("사용자는 원하는 메뉴를 장바구니에 담을 수 있다.", () => {
+    cy.visit("/restaurant/1");
+    cy.intercept(
+      {
+        method: "GET",
+        url: "/restaurant/1",
+      },
+      {
+        fixture: "menu.json",
+      }
+    );
+
+    cy.fixture("menu.json").then((menu) => {
+      cy.get(`[data-cy=${menu.menu_set[0].id}]`).should("be.visible").as("foodBtn");
+      cy.get("@foodBtn").click();
+
+      cy.url().should("include", "/order");
+      cy.get("[data-cy=counter]").should("contain", 1);
+      cy.get("[data-cy=incrementBtn]").should("be.visible").click();
+      cy.get("[data-cy=counter]").should("contain", 2);
+      cy.get("[data-cy=decrementBtn]").should("be.visible").click();
+      cy.get("[data-cy=counter]").should("contain", 1);
+      cy.get("[data-cy=completeBtn]").should("be.visible").click();
+      cy.url().should((url) => {
+        const currentUrl = new URL(url);
+        expect(currentUrl.pathname).to.equal("/");
+      });
+    });
+  });
 });
