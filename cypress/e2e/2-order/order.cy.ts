@@ -115,10 +115,8 @@ describe("주문 페이지 테스트", () => {
       cy.get("[data-cy=decrementBtn]").should("be.visible").click();
       cy.get("[data-cy=counter]").should("contain", 1);
       cy.get("[data-cy=completeBtn]").should("be.visible").click();
-      cy.url().should((url) => {
-        const currentUrl = new URL(url);
-        expect(currentUrl.pathname).to.equal("/");
-      });
+
+      cy.location("pathname").should("eq", "/");
     });
   });
 });
