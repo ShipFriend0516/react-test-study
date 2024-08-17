@@ -48,7 +48,7 @@ E2E 테스트 - 엔드투엔드 테스트, 사용자들이 실제로 사용하�
 ## 회원가입 테스트
 ![회원가입 테스트](public/회원가입테스트.png)
 
-### 에러
+### 트러블 슈팅
 
 ```bash
 FAIL  src/__test__/Signup.spec.tsx
@@ -69,3 +69,11 @@ moduleNameMapper: {
 
 읽으려다가 오류나는 CSS 파일 대신 Mock된 styleMock을 읽도록 해서 넘기는 방법이다.
 
+## 스토리북
+- UI 컴포넌트를 독립적으로 개발하고 문서화할 수 있는 환경을 제공하는 도구.
+- UI 컴포넌트에 `story` 를 부여해서 렌더링을 테스트하는 것
+- 여기서 `story`는 UI 컴포넌트의 `상태 (state)`
+    - `<button>` 을 예로 들면.
+    - `disabled`, `enabled`, `primary`, `secondary` 등등
+  
+![alt text](image.png)
